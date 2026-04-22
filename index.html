@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-safety= true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Пермь · Памятник рабочим и служащим завода им. Я. М. Свердлова</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
@@ -263,7 +263,6 @@
             <!-- 4 фото в одном месте (ряд 2x2) -->
             <div class="gallery-title">✦ Мемориальный комплекс — общие виды</div>
             <div class="grid-four" id="fourPhotosGrid">
-                <!-- 4 фотографии (заполнены вручную, администраторские) -->
                 <div class="photo-card">
                     <img src="https://placehold.co/700x500/5f6e4a/fef6e6?text=Стела+памяти+завод+Свердлова" alt="Главная стела памятника">
                     <div class="photo-caption">Главная стела с орденом Отечественной войны</div>
@@ -363,8 +362,7 @@
     window.addEventListener('scroll', checkFadeIn);
     window.addEventListener('resize', checkFadeIn);
     
-    // Дополнительный эффект: небольшая плавная анимация для карточек при загрузке (делаем их чуть заметнее)
-    // Просто для эстетики — все фото уже загружены. Добавим красивый эффект появления для сеток.
+    // Плавное появление карточек с фото (анимация без всплывающих сообщений)
     const allPhotoCards = document.querySelectorAll('.photo-card');
     allPhotoCards.forEach((card, idx) => {
         card.style.animation = `fadeSlideUp 0.5s ease forwards`;
@@ -375,40 +373,9 @@
         });
     });
     
-    // Небольшая подсказка при клике на фото (без изменения логики, просто уведомление о названии)
-    const cards = document.querySelectorAll('.photo-card');
-    cards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            const captionDiv = card.querySelector('.photo-caption');
-            if (captionDiv) {
-                const text = captionDiv.innerText;
-                const toast = document.createElement('div');
-                toast.innerText = `📷 ${text}`;
-                toast.style.position = 'fixed';
-                toast.style.bottom = '24px';
-                toast.style.left = '50%';
-                toast.style.transform = 'translateX(-50%)';
-                toast.style.backgroundColor = '#1e2a1cd9';
-                toast.style.color = '#fef0dd';
-                toast.style.padding = '10px 22px';
-                toast.style.borderRadius = '50px';
-                toast.style.fontSize = '0.85rem';
-                toast.style.fontWeight = '500';
-                toast.style.backdropFilter = 'blur(6px)';
-                toast.style.zIndex = '1000';
-                toast.style.boxShadow = '0 5px 14px rgba(0,0,0,0.3)';
-                toast.style.pointerEvents = 'none';
-                toast.style.opacity = '0';
-                toast.style.transition = 'opacity 0.2s ease';
-                document.body.appendChild(toast);
-                setTimeout(() => toast.style.opacity = '1', 8);
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                    setTimeout(() => toast.remove(), 300);
-                }, 1600);
-            }
-        });
-    });
+    // ⚠️ ВСПЛЫВАЮЩИЕ НАДПИСИ ПОЛНОСТЬЮ УБРАНЫ — никаких toast-уведомлений при клике на картинку.
+    // Никаких alert, всплывающих окон, дополнительных сообщений.
+    // Фотографии остаются интерактивными только визуально (hover-эффекты), но без всплывающих подсказок.
 </script>
 </body>
 </html>
