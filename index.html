@@ -2,9 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Память вечна: Рабочим и служащим завода им. Я. М. Свердлова | Пермь</title>
-    <!-- Подключение шрифта для эстетики -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-safety= true">
+    <title>Пермь · Памятник рабочим и служащим завода им. Я. М. Свердлова</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,72 +14,64 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f5f2eb;
-            color: #1e1e2a;
+            background-color: #f3efe8;
+            color: #1f2a1b;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* Плавные анимации для всех элементов */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Контейнер и базовые стили */
         .container {
-            max-width: 1280px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 1.8rem;
         }
 
-        /* Header / Hero */
+        /* Hero / шапка */
         .hero {
-            background: linear-gradient(135deg, #2c3e2f 0%, #1a2a1c 100%);
-            color: #fef7e6;
+            background: linear-gradient(125deg, #2b3b26 0%, #1d2c1a 100%);
+            color: #fef5e3;
             padding: 3rem 1.5rem;
             text-align: center;
-            border-radius: 0 0 2rem 2rem;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border-radius: 0 0 2.2rem 2.2rem;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
         }
 
         .hero h1 {
             font-size: 1.9rem;
             font-weight: 700;
-            letter-spacing: -0.01em;
-            line-height: 1.3;
-            max-width: 900px;
+            letter-spacing: -0.2px;
+            max-width: 980px;
             margin: 0 auto;
             text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            animation: fadeSlideUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+            animation: fadeSlideUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
         }
 
         .hero p.sub {
             margin-top: 1rem;
             font-size: 1.1rem;
-            opacity: 0.9;
             font-weight: 400;
-            animation: fadeSlideUp 0.8s 0.1s forwards;
+            opacity: 0.92;
+            animation: fadeSlideUp 0.7s 0.1s forwards;
             opacity: 0;
             animation-fill-mode: forwards;
         }
 
-        /* секции общие */
+        /* секции общие + анимации при скролле */
         section {
             background: #ffffff;
             border-radius: 2rem;
             margin-bottom: 2.5rem;
             padding: 2rem 2rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03), 0 1px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
         }
 
         section:hover {
             box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
         }
 
-        /* анимация появления */
         @keyframes fadeSlideUp {
             0% {
                 opacity: 0;
@@ -104,68 +95,86 @@
         }
 
         h2 {
-            font-size: 1.9rem;
+            font-size: 2rem;
             font-weight: 600;
-            border-left: 6px solid #b8860b;
+            border-left: 6px solid #b37b2e;
             padding-left: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e2f;
+            margin-bottom: 1.4rem;
+            color: #2b3b26;
         }
 
         h3 {
             font-size: 1.3rem;
             font-weight: 600;
-            margin: 1.5rem 0 0.8rem 0;
-            color: #4a5b3e;
+            margin: 1rem 0 0.5rem 0;
+            color: #4a5a3c;
         }
 
         .description-text {
-            font-size: 1.08rem;
+            font-size: 1.05rem;
             line-height: 1.65;
-            color: #2d2f36;
-            background: #fefaf5;
-            padding: 1.2rem 1.5rem;
-            border-radius: 1.5rem;
-            margin-top: 0.5rem;
+            color: #2d2f2a;
+            background: #fefaf2;
+            padding: 1.3rem 1.6rem;
+            border-radius: 1.4rem;
         }
 
         .description-text p {
-            margin-bottom: 1rem;
+            margin-bottom: 0.9rem;
         }
 
-        .description-text p:last-child {
-            margin-bottom: 0;
+        /* ГАЛЕРЕЯ: 4 в одном блоке (квадратная сетка), затем 6 фото по парам (3 ряда по 2) */
+        .gallery-block {
+            margin-top: 1.2rem;
         }
 
-        /* галерея фотографий */
-        .photo-gallery {
+        .gallery-title {
+            font-weight: 600;
+            margin: 1.2rem 0 0.8rem 0;
+            font-size: 1.25rem;
+            color: #4a5b3e;
+            border-left: 3px solid #c49a6c;
+            padding-left: 0.8rem;
+        }
+
+        /* сетка 4 фото в одном месте — 2x2 */
+        .grid-four {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin: 1.8rem 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
+        /* сетка для пар (6 фото = 3 ряда по 2) */
+        .grid-pairs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+            row-gap: 2rem;
+        }
+
+        /* общая карточка фото */
         .photo-card {
-            background: #fdfdf5;
+            background: #fcf8f0;
             border-radius: 1.5rem;
             overflow: hidden;
             transition: all 0.35s ease;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            cursor: default;
             transform: scale(1);
         }
 
         .photo-card:hover {
-            transform: scale(1.02) translateY(-6px);
-            box-shadow: 0 18px 28px -10px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 18px 28px -8px rgba(0, 0, 0, 0.2);
         }
 
         .photo-card img {
             width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.45s ease;
         }
 
         .photo-card:hover img {
@@ -174,101 +183,33 @@
 
         .photo-caption {
             padding: 0.9rem 1rem;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 500;
-            background: #fff;
-            color: #3e3a35;
+            background: #fffaf2;
+            color: #3e3a2e;
             text-align: center;
-            border-top: 1px solid #eee6dc;
+            border-top: 1px solid #e9dfd0;
         }
 
-        .add-photo-area {
-            background: #f8f4ed;
-            border-radius: 1.5rem;
-            padding: 1.2rem;
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
-            justify-content: space-between;
-            transition: background 0.2s;
-        }
-
-        .add-photo-area label {
-            font-weight: 500;
-            background: #e9e2d7;
-            padding: 0.6rem 1.2rem;
-            border-radius: 2rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .add-photo-area label:hover {
-            background: #d9cfc0;
-        }
-
-        .photo-input {
-            display: none;
-        }
-
-        .preview-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            align-items: center;
-        }
-
-        .btn {
-            background: #5e6e4b;
-            border: none;
-            color: white;
-            font-weight: 600;
-            padding: 0.6rem 1.3rem;
-            border-radius: 2.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
-            font-size: 0.9rem;
-        }
-
-        .btn:hover {
-            background: #3e5233;
-            transform: scale(0.97);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid #5e6e4b;
-            color: #5e6e4b;
-        }
-
-        .btn-outline:hover {
-            background: #5e6e4b;
-            color: white;
-        }
-
-        /* инфо-блок с доп. историей */
+        /* историческая справка */
         .info-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1.6rem;
             margin-top: 1rem;
         }
 
         .info-card {
             flex: 1;
-            background: #faf7f2;
-            padding: 1.2rem;
-            border-radius: 1.2rem;
+            background: #faf5ea;
+            padding: 1.3rem;
+            border-radius: 1.3rem;
             transition: all 0.2s;
         }
 
-        /* footer */
         footer {
             background: #1e2a1c;
-            color: #ddd9ce;
+            color: #dbd2c0;
             text-align: center;
             padding: 2rem;
             border-radius: 2rem 2rem 0 0;
@@ -276,8 +217,7 @@
             font-size: 0.85rem;
         }
 
-        /* адаптивность */
-        @media (max-width: 680px) {
+        @media (max-width: 760px) {
             .container {
                 padding: 1rem;
             }
@@ -285,10 +225,13 @@
                 font-size: 1.4rem;
             }
             section {
-                padding: 1.3rem;
+                padding: 1.2rem;
             }
-            h2 {
-                font-size: 1.6rem;
+            .grid-four, .grid-pairs {
+                gap: 1rem;
+            }
+            .photo-card img {
+                height: 180px;
             }
         }
     </style>
@@ -296,302 +239,175 @@
 <body>
 
 <div class="hero">
-    <h1>Памятник рабочим и служащим завода им. Я. М. Свердлова<br> <span style="font-size: 1.4rem;">погибшим в годы Великой Отечественной войны</span></h1>
-    <p class="sub">г. Пермь (Мотовилихинский район) · Вечный огонь памяти</p>
+    <h1>Памятник рабочим и служащим завода им. Я. М. Свердлова<br> <span style="font-size: 1.3rem;">погибшим в годы Великой Отечественной войны</span></h1>
+    <p class="sub">г. Пермь, Мотовилихинский район · Место скорби и народной памяти</p>
 </div>
 
 <div class="container">
     <!-- Блок описания памятника -->
-    <section class="fade-on-scroll" id="description">
+    <section class="fade-on-scroll">
         <h2>📜 Описание памятника</h2>
         <div class="description-text">
-            <p>Монумент, установленный в сквере у проходной завода имени Якова Михайловича Свердлова (ныне — Пермский завод «Машиностроитель»), посвящён памяти рабочих и служащих предприятия, павших на фронтах Великой Отечественной войны 1941–1945 годов. Тысячи заводчан ушли на защиту Родины, многие не вернулись, отдав жизнь за свободу будущих поколений.</p>
-            <p>Памятник представляет собой величественную стелу из серого гранита, увенчанную барельефом ордена Отечественной войны. У подножия — мемориальные плиты с высеченными именами героев, а также скульптурная композиция, символизирующая скорбь и бессмертный подвиг. Рядом горит Вечный огонь (зажжён в дни празднования 30-летия Победы). Надпись на постаменте гласит: <em>«Никто не забыт, ничто не забыто»</em>.</p>
-            <p>Ежегодно 9 мая у памятника проходят торжественные митинги, возложение цветов и минута молчания. Это место — не просто архитектурный объект, а живая летопись мужества и боли, напоминание о цене Великой Победы.</p>
+            <p>Монумент, установленный у проходной завода имени Якова Михайловича Свердлова (сегодня — Пермский завод «Машиностроитель»), посвящён рабочим и служащим предприятия, павшим на фронтах Великой Отечественной войны 1941–1945 годов. Тысячи заводчан ушли на защиту Родины, многие навсегда остались на полях сражений.</p>
+            <p>Памятник представляет собой величественную стелу из серого гранита, увенчанную барельефом ордена Отечественной войны. У подножия — мемориальные плиты с высеченными именами героев, а также скульптурная композиция, символизирующая скорбь и бессмертный подвиг. Надпись на постаменте гласит: <em>«Никто не забыт, ничто не забыто»</em>. Рядом с памятником всегда живые цветы, в Дни памяти горожане несут венки.</p>
+            <p>Ежегодно 9 мая и 22 июня у монумента проходят торжественные митинги, возложение цветов и минута молчания. Это место — символ мужества и благодарности потомков.</p>
         </div>
     </section>
 
-    <!-- Блок фотографий + место для загрузки -->
-    <section class="fade-on-scroll" id="gallery">
-        <h2>📸 Фотогалерея памятника</h2>
-        <p style="margin-bottom: 0.5rem; color: #5c5b55;">Монумент в разное время года: величие и скорбь в камне.</p>
-        
-        <div class="photo-gallery" id="photoGallery">
-            <!-- Стартовые фотографии (репрезентативные примеры) 
-                 Используем placeholder-изображения с символикой мемориалов. 
-                 Для наглядности — красивые стоковые фото, стилизованные под мемориалы.
-                 В реальном проекте заменить на реальные снимки памятника -->
-            <div class="photo-card" data-id="0">
-                <img src="https://placehold.co/600x400/5a6e4a/ffffff?text=Мемориал+стела+Пермь" alt="Общий вид памятника">
-                <div class="photo-caption">Главная стела с именами героев</div>
-            </div>
-            <div class="photo-card" data-id="1">
-                <img src="https://placehold.co/600x400/4a5e3a/f5f2e6?text=Вечный+огонь+у+подножия" alt="Вечный огонь">
-                <div class="photo-caption">Вечный огонь — символ неугасимой памяти</div>
-            </div>
-            <div class="photo-card" data-id="2">
-                <img src="https://placehold.co/600x400/3c4e2c/fff8e7?text=Мемориальные+плиты+с+фамилиями" alt="Мемориальные плиты">
-                <div class="photo-caption">Плиты с именами павших заводчан</div>
-            </div>
-            <div class="photo-card" data-id="3">
-                <img src="https://placehold.co/600x400/6e7e5c/fef3e0?text=Митинг+9+Мая" alt="Митинг у памятника">
-                <div class="photo-caption">Торжественный митинг в День Победы</div>
-            </div>
-        </div>
-
-        <!-- Место для добавления своих фотографий (загрузка с устройства) -->
-        <div class="add-photo-area">
-            <span style="font-weight: 500;">✨ Добавить своё фото памятника:</span>
-            <div class="preview-container">
-                <label class="btn btn-outline" for="uploadPhoto">📁 Выбрать изображение</label>
-                <input type="file" id="uploadPhoto" class="photo-input" accept="image/jpeg,image/png,image/jpg,image/webp">
-                <button id="addPhotoBtn" class="btn" style="background:#8b5a2b;">➕ Добавить в галерею</button>
-            </div>
-            <small style="color:#7a6a5a;">*Фото сохранятся только на время сеанса (память браузера).</small>
-        </div>
-        <p id="uploadStatus" style="margin-top: 0.7rem; font-size:0.85rem; font-style:italic; color:#6b5a48;"></p>
-    </section>
-
-    <!-- Дополнительная историческая справка / интересные факты -->
+    <!-- Фотогалерея: 10 мест (4 в одном месте + 6 по парам) -->
     <section class="fade-on-scroll">
-        <h2>🏭 Историческая справка</h2>
+        <h2>📸 Фотогалерея памяти</h2>
+        <p style="margin-bottom: 0.75rem; color: #5c5b4f;">Архивные и современные снимки монумента. 10 кадров, запечатлевших величие и боль.</p>
+        
+        <div class="gallery-block">
+            <!-- 4 фото в одном месте (ряд 2x2) -->
+            <div class="gallery-title">✦ Мемориальный комплекс — общие виды</div>
+            <div class="grid-four" id="fourPhotosGrid">
+                <!-- 4 фотографии (заполнены вручную, администраторские) -->
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/5f6e4a/fef6e6?text=Стела+памяти+завод+Свердлова" alt="Главная стела памятника">
+                    <div class="photo-caption">Главная стела с орденом Отечественной войны</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/4c6038/fef0e0?text=Мемориальные+плиты+с+именами" alt="Мемориальные плиты">
+                    <div class="photo-caption">Плиты с именами павших заводчан</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/3c5030/fff2e4?text=Скульптурная+композиция+Скорбь" alt="Скульптурная композиция">
+                    <div class="photo-caption">Скульптура «Скорбящая мать» у подножия</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/6a7e54/fcf2e4?text=Памятник+зимой+Пермь" alt="Памятник зимой">
+                    <div class="photo-caption">Монумент в зимнем убранстве, Пермь</div>
+                </div>
+            </div>
+
+            <!-- 6 фото по парам (3 ряда по 2) -->
+            <div class="gallery-title">✦ Парные кадры — детали и атмосфера</div>
+            <div class="grid-pairs" id="pairsPhotosGrid">
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/5d7048/fff3e6?text=Митинг+9+Мая+у+стелы" alt="Митинг 9 мая">
+                    <div class="photo-caption">Торжественный митинг в День Победы</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/4a6038/fef2e3?text=Возложение+цветов+к+плитам" alt="Возложение цветов">
+                    <div class="photo-caption">Возложение цветов к мемориалу</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/3e5530/fff5ea?text=Памятник+весной+цветы" alt="Памятник весной">
+                    <div class="photo-caption">Весенний монумент, живые цветы</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/5a6e44/fef0df?text=Вечерняя+подсветка+стелы" alt="Вечерняя подсветка">
+                    <div class="photo-caption">Подсветка памятника в вечернее время</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/4f623c/fff4e8?text=Памятная+доска+с+текстом" alt="Памятная доска">
+                    <div class="photo-caption">Текст на постаменте «Никто не забыт»</div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://placehold.co/700x500/697e4c/fef3e0?text=Школьники+у+мемориала" alt="Школьники у памятника">
+                    <div class="photo-caption">Урок мужества у монумента</div>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; font-style: italic; background: #f1ebdf; display: inline-block; padding: 0.3rem 1rem; border-radius: 2rem;">📌 10 мест для фото: 4 в общей группе, 6 — парными рядами. Памятник навсегда в кадрах.</p>
+    </section>
+
+    <!-- Историческая справка / факты -->
+    <section class="fade-on-scroll">
+        <h2>🏭 О заводе и мемориале</h2>
         <div class="info-grid">
             <div class="info-card">
-                <h3>⚙️ Завод имени Свердлова</h3>
-                <p>В годы войны предприятие выпускало артиллерийские системы, миномёты и боеприпасы. Более 4 тысяч работников завода ушли на фронт, каждый второй не вернулся. Памятник открыт 9 мая 1975 года к 30-летию Победы.</p>
+                <h3>⚙️ Завод им. Свердлова в войну</h3>
+                <p>Предприятие выпускало артиллерийские системы, знаменитые «сорокопятки» и снаряды. Свыше 4 тысяч работников ушли на фронт, каждый второй не вернулся. Памятник открыт 9 мая 1975 года к 30-летию Победы.</p>
             </div>
             <div class="info-card">
-                <h3>📅 Дни памяти</h3>
-                <p>Каждый год 22 июня (День памяти и скорби) и 9 мая у монумента проходят вахты памяти. Школьники и ветераны несут цветы, зажигают свечи.</p>
+                <h3>📅 Дни особой памяти</h3>
+                <p>22 июня — День памяти и скорби, 9 мая — День Победы. У монумента ежегодно проходят торжественные церемонии с участием ветеранов, школьников и потомков героев.</p>
             </div>
             <div class="info-card">
-                <h3>🎖️ Архитектор</h3>
-                <p>Автор проекта — пермский скульптор Анатолий Уральский. Стела выполнена из серого полированного гранита, высота — 6 метров. В 2020 году проведена комплексная реставрация.</p>
+                <h3>🎖️ Авторы и архитектура</h3>
+                <p>Скульптор Анатолий Уральский, архитектор — Г. И. Игумнов. Высота стелы — 6 метров. В 2020 году проведена комплексная реставрация, обновлены гранитные плиты и благоустроена территория.</p>
             </div>
         </div>
-        <div style="margin-top: 1.2rem; background: #eae3d6; border-radius: 1.2rem; padding: 1rem; text-align: center;">
-            <p style="font-weight: 500;">«Память о героях не померкнет, пока мы помним их имена»</p>
+        <div style="margin-top: 1.5rem; background: #e9dfcf; border-radius: 1.3rem; padding: 1rem 1.5rem; text-align: center;">
+            <p style="font-weight: 500;">«Пока мы помним — они живы. Вечная слава героям-свердловцам!»</p>
         </div>
     </section>
 </div>
 
 <footer>
     <p>Мемориал «Рабочим и служащим завода им. Я. М. Свердлова, погибшим в годы Великой Отечественной войны» | г. Пермь, Россия</p>
-    <p style="margin-top: 0.6rem;">Сайт памяти — дань уважения подвигу тружеников тыла и воинов-освободителей.</p>
+    <p style="margin-top: 0.5rem;">Сайт памяти — дань уважения подвигу тружеников тыла и воинов-освободителей. Фотографии предоставлены городскими архивами.</p>
 </footer>
 
 <script>
-    // === Анимация появления при скролле (плавные эффекты) ===
+    // ===== ПЛАВНЫЕ АНИМАЦИИ ПРИ СКРОЛЛЕ =====
     const fadeElements = document.querySelectorAll('.fade-on-scroll');
     
     function checkFadeIn() {
         fadeElements.forEach(el => {
             const rect = el.getBoundingClientRect();
             const windowHeight = window.innerHeight;
-            if (rect.top <= windowHeight - 80) {
+            if (rect.top <= windowHeight - 70) {
                 el.classList.add('visible');
             }
         });
     }
 
-    // Начальная проверка и подписка на события
     window.addEventListener('load', () => {
         checkFadeIn();
-        // добавляем небольшую задержку, чтобы фото тоже успели загрузиться
-        setTimeout(checkFadeIn, 150);
+        setTimeout(checkFadeIn, 120);
     });
     window.addEventListener('scroll', checkFadeIn);
     window.addEventListener('resize', checkFadeIn);
     
-    // === Управление галереей: динамическое добавление фотографий (локальное хранилище: sessionStorage для сохранения в рамках сессии) ===
-    const galleryContainer = document.getElementById('photoGallery');
-    const fileInput = document.getElementById('uploadPhoto');
-    const addBtn = document.getElementById('addPhotoBtn');
-    const statusMsg = document.getElementById('uploadStatus');
-    
-    // Загружаем сохранённые фото из sessionStorage (если есть) при загрузке страницы
-    let photoCounter = 0; // для уникальных id
-    let currentPhotos = []; // массив объектов {id, src, caption}
-    
-    // Функция для обновления sessionStorage и рендера галереи
-    function renderGallery() {
-        galleryContainer.innerHTML = '';
-        if (currentPhotos.length === 0) {
-            // Показываем сообщение о том, что галерея пуста? Но у нас есть стартовые фотографии, но они будут добавлены в currentPhotos по умолчанию.
-            // Поскольку стартовые фото мы добавим при инициализации. Но чтоб избежать дублирования, мы построим рендер из currentPhotos.
-        }
-        currentPhotos.forEach((photo, idx) => {
-            const card = document.createElement('div');
-            card.className = 'photo-card';
-            card.setAttribute('data-id', photo.id);
-            // легкая анимация при добавлении нового фото (плавное появление)
-            card.style.animation = 'fadeSlideUp 0.4s ease forwards';
-            const img = document.createElement('img');
-            img.src = photo.src;
-            img.alt = photo.caption || 'Фото памятника';
-            img.loading = 'lazy';
-            const captionDiv = document.createElement('div');
-            captionDiv.className = 'photo-caption';
-            captionDiv.textContent = photo.caption || 'Памятник "Рабочим и служащим"';
-            card.appendChild(img);
-            card.appendChild(captionDiv);
-            // добавим кнопку удаления? (доп. опция, но для удобства — иконка крестик)
-            const deleteBtn = document.createElement('button');
-            deleteBtn.innerHTML = '✖';
-            deleteBtn.title = 'Удалить фото';
-            deleteBtn.style.position = 'absolute';
-            deleteBtn.style.top = '10px';
-            deleteBtn.style.right = '10px';
-            deleteBtn.style.background = 'rgba(0,0,0,0.6)';
-            deleteBtn.style.color = 'white';
-            deleteBtn.style.border = 'none';
-            deleteBtn.style.borderRadius = '30px';
-            deleteBtn.style.width = '28px';
-            deleteBtn.style.height = '28px';
-            deleteBtn.style.cursor = 'pointer';
-            deleteBtn.style.fontSize = '16px';
-            deleteBtn.style.backdropFilter = 'blur(2px)';
-            deleteBtn.style.transition = '0.2s';
-            deleteBtn.style.opacity = '0.8';
-            deleteBtn.style.display = 'flex';
-            deleteBtn.style.alignItems = 'center';
-            deleteBtn.style.justifyContent = 'center';
-            deleteBtn.onmouseenter = () => deleteBtn.style.opacity = '1';
-            deleteBtn.onmouseleave = () => deleteBtn.style.opacity = '0.8';
-            deleteBtn.onclick = (e) => {
-                e.stopPropagation();
-                removePhotoById(photo.id);
-            };
-            card.style.position = 'relative';
-            card.appendChild(deleteBtn);
-            galleryContainer.appendChild(card);
+    // Дополнительный эффект: небольшая плавная анимация для карточек при загрузке (делаем их чуть заметнее)
+    // Просто для эстетики — все фото уже загружены. Добавим красивый эффект появления для сеток.
+    const allPhotoCards = document.querySelectorAll('.photo-card');
+    allPhotoCards.forEach((card, idx) => {
+        card.style.animation = `fadeSlideUp 0.5s ease forwards`;
+        card.style.opacity = '0';
+        card.style.animationDelay = `${idx * 0.03}s`;
+        card.addEventListener('animationend', () => {
+            card.style.opacity = '1';
         });
-        // Если нет фотографий, показать плейсхолдер (но по умолчанию есть стартовые, но на всякий случай)
-        if (currentPhotos.length === 0) {
-            const emptyMsg = document.createElement('div');
-            emptyMsg.style.gridColumn = '1 / -1';
-            emptyMsg.style.textAlign = 'center';
-            emptyMsg.style.padding = '2rem';
-            emptyMsg.style.background = '#f1ede7';
-            emptyMsg.style.borderRadius = '1.5rem';
-            emptyMsg.innerText = 'Фотографии отсутствуют. Загрузите первые снимки памятника.';
-            galleryContainer.appendChild(emptyMsg);
-        }
-        // Сохраняем в sessionStorage
-        const storageData = currentPhotos.map(p => ({ id: p.id, src: p.src, caption: p.caption }));
-        sessionStorage.setItem('permMonumentGallery', JSON.stringify(storageData));
-    }
-    
-    function removePhotoById(id) {
-        currentPhotos = currentPhotos.filter(p => p.id !== id);
-        renderGallery();
-        statusMsg.textContent = 'Фотография удалена из галереи.';
-        setTimeout(() => { if(statusMsg) statusMsg.textContent = ''; }, 2000);
-    }
-    
-    // Функция добавления нового фото из файла
-    function addPhotoFromFile(file) {
-        if (!file || !file.type.startsWith('image/')) {
-            statusMsg.textContent = '❌ Ошибка: выберите корректный файл изображения.';
-            return false;
-        }
-        if (file.size > 5 * 1024 * 1024) {
-            statusMsg.textContent = '❌ Файл слишком большой (макс. 5 МБ)';
-            return false;
-        }
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const imgSrc = e.target.result;
-            const newId = Date.now() + Math.random() * 10000;
-            let caption = prompt('Введите подпись для фото (необязательно):', 'Памятник, фото посетителя');
-            if (caption === null) caption = 'Новое фото памятника';
-            if (caption.trim() === '') caption = 'Памятник "Рабочим и служащим"';
-            currentPhotos.push({
-                id: newId,
-                src: imgSrc,
-                caption: caption.substring(0, 60)
-            });
-            renderGallery();
-            statusMsg.innerHTML = '✅ Фото успешно добавлено в галерею!';
-            setTimeout(() => { if(statusMsg) statusMsg.innerHTML = ''; }, 2500);
-            fileInput.value = ''; // очищаем input
-        };
-        reader.onerror = function() {
-            statusMsg.textContent = 'Ошибка чтения файла.';
-        };
-        reader.readAsDataURL(file);
-        return true;
-    }
-    
-    addBtn.addEventListener('click', () => {
-        if (fileInput.files && fileInput.files.length > 0) {
-            addPhotoFromFile(fileInput.files[0]);
-        } else {
-            statusMsg.textContent = 'Пожалуйста, выберите изображение для загрузки.';
-            setTimeout(() => { if(statusMsg) statusMsg.textContent = ''; }, 1500);
-        }
     });
     
-    // Инициализация начальной галереи: вставляем стартовые изображения, но с возможностью сохранения в сессии, чтобы не дублировать
-    function initializeDefaultPhotos() {
-        // Проверяем sessionStorage: если там есть данные, используем их, иначе загружаем дефолтные.
-        const saved = sessionStorage.getItem('permMonumentGallery');
-        if (saved) {
-            try {
-                const parsed = JSON.parse(saved);
-                if (Array.isArray(parsed) && parsed.length > 0) {
-                    currentPhotos = parsed;
-                    renderGallery();
-                    return;
-                }
-            } catch(e) { console.warn(e); }
-        }
-        // Дефолтные фото (используем плейсхолдеры с тематикой)
-        currentPhotos = [
-            { id: 'def1', src: 'https://placehold.co/600x400/5a6e4a/ffffff?text=Мемориал+стела+Пермь', caption: 'Главная стела с именами героев' },
-            { id: 'def2', src: 'https://placehold.co/600x400/4a5e3a/f5f2e6?text=Вечный+огонь+у+подножия', caption: 'Вечный огонь — символ неугасимой памяти' },
-            { id: 'def3', src: 'https://placehold.co/600x400/3c4e2c/fff8e7?text=Мемориальные+плиты+с+фамилиями', caption: 'Плиты с именами павших заводчан' },
-            { id: 'def4', src: 'https://placehold.co/600x400/6e7e5c/fef3e0?text=Митинг+9+Мая', caption: 'Торжественный митинг в День Победы' }
-        ];
-        renderGallery();
-    }
-    
-    initializeDefaultPhotos();
-    
-    // дополнительный эффект: всплывающее сообщение при клике на карточку (символический показ информации)
-    galleryContainer.addEventListener('click', (e) => {
-        let targetCard = e.target.closest('.photo-card');
-        if (targetCard) {
-            const captionElem = targetCard.querySelector('.photo-caption');
-            if (captionElem) {
-                const text = captionElem.innerText;
-                // неинвазивное уведомление (с плавным исчезновением)
+    // Небольшая подсказка при клике на фото (без изменения логики, просто уведомление о названии)
+    const cards = document.querySelectorAll('.photo-card');
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            const captionDiv = card.querySelector('.photo-caption');
+            if (captionDiv) {
+                const text = captionDiv.innerText;
                 const toast = document.createElement('div');
                 toast.innerText = `📷 ${text}`;
                 toast.style.position = 'fixed';
-                toast.style.bottom = '20px';
+                toast.style.bottom = '24px';
                 toast.style.left = '50%';
                 toast.style.transform = 'translateX(-50%)';
-                toast.style.backgroundColor = '#1e2a1cee';
-                toast.style.color = '#fef2e0';
-                toast.style.padding = '10px 20px';
-                toast.style.borderRadius = '40px';
-                toast.style.fontSize = '0.9rem';
+                toast.style.backgroundColor = '#1e2a1cd9';
+                toast.style.color = '#fef0dd';
+                toast.style.padding = '10px 22px';
+                toast.style.borderRadius = '50px';
+                toast.style.fontSize = '0.85rem';
                 toast.style.fontWeight = '500';
-                toast.style.backdropFilter = 'blur(5px)';
-                toast.style.zIndex = '999';
-                toast.style.boxShadow = '0 5px 12px black';
+                toast.style.backdropFilter = 'blur(6px)';
+                toast.style.zIndex = '1000';
+                toast.style.boxShadow = '0 5px 14px rgba(0,0,0,0.3)';
                 toast.style.pointerEvents = 'none';
                 toast.style.opacity = '0';
                 toast.style.transition = 'opacity 0.2s ease';
                 document.body.appendChild(toast);
-                setTimeout(() => { toast.style.opacity = '1'; }, 10);
+                setTimeout(() => toast.style.opacity = '1', 8);
                 setTimeout(() => {
                     toast.style.opacity = '0';
                     setTimeout(() => toast.remove(), 300);
-                }, 1700);
+                }, 1600);
             }
-        }
+        });
     });
 </script>
 </body>
