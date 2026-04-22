@@ -171,7 +171,7 @@
             border: 1px solid rgba(210, 170, 70, 0.3);
         }
 
-        /* ГАЛЕРЕЯ — карточки с 3D-тilt и дикими анимациями */
+        /* ГАЛЕРЕЯ — карточки с 3D-тilt и дикими анимациями, без подписей */
         .grid-four, .grid-pairs {
             display: grid;
             gap: 1.8rem;
@@ -216,6 +216,7 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
+            display: block;
             transition: transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.2), filter 0.5s;
             filter: brightness(0.92) contrast(1.05);
         }
@@ -223,17 +224,6 @@
         .photo-card:hover img {
             transform: scale(1.08);
             filter: brightness(1.02) contrast(1.1);
-        }
-
-        .photo-caption {
-            padding: 1rem;
-            font-weight: 600;
-            background: #0f130c;
-            color: #eedba7;
-            text-align: center;
-            letter-spacing: 0.3px;
-            border-top: 1px solid #dbb25c40;
-            font-size: 0.9rem;
         }
 
         /* историческая справка — с блеском */
@@ -325,29 +315,25 @@
         </div>
     </section>
 
-    <!-- Фотогалерея: 10 мест с дикой анимацией -->
+    <!-- Фотогалерея: 10 мест, без подписей под картинками, только рамки и анимация -->
     <section class="fade-on-scroll">
         <h2>📸 КАДРЫ ПАМЯТИ | 10 ФОТО</h2>
-        <p style="margin-bottom: 1.2rem; color: #cfc394; font-weight: 300;">4 фотографии основного памятника + 6 маленьких памятников отдельным людям</p>
+        <p style="margin-bottom: 1.2rem; color: #cfc394; font-weight: 300;">4 фотографии основного памятника + 3 пары памятников для отдельных людей</p>
         
         <div class="gallery-block">
-            <div class="gallery-title">✦ БЛОК СИЛЫ — 4 РАКУРСА</div>
+            <div class="gallery-title">✦ ОСНОВНОЙ БЛОК — 4 РАКУРСА</div>
             <div class="grid-four">
                 <div class="photo-card" style="--order:1">
-                    <img src="https://placehold.co/700x500/5f6e4a/fef6e6?text=Стела+памяти+завод+Свердлова" alt="Главная стела">
-                    <div class="photo-caption">Главная стела с орденом Отечественной войны</div>
+                    <img src="https://placehold.co/700x500/5f6e4a/fef6e6?text=Стела+памяти+завод+Свердлова" alt="Главная стела памятника">
                 </div>
                 <div class="photo-card" style="--order:2">
                     <img src="https://placehold.co/700x500/4c6038/fef0e0?text=Мемориальные+плиты+с+именами" alt="Мемориальные плиты">
-                    <div class="photo-caption">Плиты с именами павших заводчан</div>
                 </div>
                 <div class="photo-card" style="--order:3">
                     <img src="https://placehold.co/700x500/3c5030/fff2e4?text=Скульптурная+композиция+Скорбь" alt="Скульптура скорби">
-                    <div class="photo-caption">Скульптура «Скорбящая мать»</div>
                 </div>
                 <div class="photo-card" style="--order:4">
                     <img src="https://placehold.co/700x500/6a7e54/fcf2e4?text=Памятник+зимой+Пермь" alt="Памятник зимой">
-                    <div class="photo-caption">Монумент в зимнем убранстве, Пермь</div>
                 </div>
             </div>
 
@@ -355,27 +341,21 @@
             <div class="grid-pairs">
                 <div class="photo-card" style="--order:5">
                     <img src="https://placehold.co/700x500/5d7048/fff3e6?text=Митинг+9+Мая+у+стелы" alt="Митинг 9 мая">
-                    <div class="photo-caption">Торжественный митинг в День Победы</div>
                 </div>
                 <div class="photo-card" style="--order:6">
                     <img src="https://placehold.co/700x500/4a6038/fef2e3?text=Возложение+цветов+к+плитам" alt="Возложение цветов">
-                    <div class="photo-caption">Возложение цветов к мемориалу</div>
                 </div>
                 <div class="photo-card" style="--order:7">
                     <img src="https://placehold.co/700x500/3e5530/fff5ea?text=Памятник+весной+цветы" alt="Памятник весной">
-                    <div class="photo-caption">Весенний монумент, живые цветы</div>
                 </div>
                 <div class="photo-card" style="--order:8">
                     <img src="https://placehold.co/700x500/5a6e44/fef0df?text=Вечерняя+подсветка+стелы" alt="Вечерняя подсветка">
-                    <div class="photo-caption">Подсветка памятника в вечернее время</div>
                 </div>
                 <div class="photo-card" style="--order:9">
                     <img src="https://placehold.co/700x500/4f623c/fff4e8?text=Памятная+доска+с+текстом" alt="Памятная доска">
-                    <div class="photo-caption">Текст на постаменте «Никто не забыт»</div>
                 </div>
                 <div class="photo-card" style="--order:10">
                     <img src="https://placehold.co/700x500/697e4c/fef3e0?text=Школьники+у+мемориала" alt="Школьники у памятника">
-                    <div class="photo-caption">Урок мужества у монумента</div>
                 </div>
             </div>
         </div>
@@ -462,17 +442,6 @@
             h.style.transform = 'scale(1) translateX(0)';
         });
     });
-
-    // Лёгкий эффект мерцания для подложки (через класс, просто атмосфера)
-    setInterval(() => {
-        const bodyAfter = document.querySelector('body::after');
-        // просто для динамики стиля, не влияет на текст
-        const overlay = document.createElement('style');
-        // чисто визуальная атмосфера
-    }, 3000);
-    
-    // убираем любые всплывающие окна / тосты — их нет, только анимации и ховеры
-    console.log('Анимации заряжены на полную. Память в камне и коде.');
 </script>
 </body>
 </html>
