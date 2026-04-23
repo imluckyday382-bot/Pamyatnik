@@ -154,7 +154,6 @@
             transition: 0.3s;
         }
 
-        /* Общий блок описания + адрес и дата */
         .description-wrapper {
             background: rgba(0,0,0,0.3);
             border-radius: 1.6rem;
@@ -197,7 +196,7 @@
             font-weight: 600;
         }
 
-        /* Слайдер - ЖЁСТКОЕ ВЫРАВНИВАНИЕ КАРТИНОК */
+        /* ===== СЛАЙДЕР - ПРОСТОЕ И НАДЁЖНОЕ РЕШЕНИЕ ===== */
         .slider-container {
             position: relative;
             border-radius: 1.8rem;
@@ -221,17 +220,14 @@
         }
 
         .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #1a1f15;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
             position: relative;
+            overflow: hidden;
+            background: #1a1f15;
         }
 
-        /* ГЛАВНОЕ: ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ЛЮБЫХ КАРТИНОК */
+        /* ГЛАВНОЕ ПРАВИЛО - картинка заполняет весь слайд без смещений */
         .swiper-slide img {
             width: 100%;
             height: 100%;
@@ -239,61 +235,14 @@
             object-position: center;
             display: block;
             transition: transform 0.5s ease, filter 0.4s ease;
-            /* Принудительно заполняет всю рамку, обрезая лишнее */
         }
 
-        /* Дополнительная защита: если картинка всё ещё не на всю высоту */
-        .swiper-slide {
-            position: relative;
-        }
-        
-        .swiper-slide::before {
-            content: '';
-            display: none;
-        }
-
-        /* Форсируем для всех img внутри слайда */
-        .swiper-wrapper .swiper-slide img {
-            min-width: 100%;
-            min-height: 100%;
-            max-width: none;
-            max-height: none;
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        /* Альтернативный более жёсткий метод через background-image? 
-           Но оставляем img, просто фиксим через absolute */
-        .swiper-slide {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .swiper-slide img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-        
-        /* Убираем старый transform translate у img при таком подходе, оставляем только hover */
         .swiper-slide:hover img {
             transform: scale(1.03);
             filter: brightness(1.02) contrast(1.05);
         }
-        
-        /* А для hover не ломаем позиционирование */
-        .swiper-slide:hover img {
-            transform: scale(1.03);
-        }
 
+        /* Кнопки навигации */
         .swiper-button-next, .swiper-button-prev {
             color: #dbb25c;
             background: rgba(0,0,0,0.5);
@@ -304,20 +253,24 @@
             transition: all 0.2s;
             z-index: 20;
         }
+        
         .swiper-button-next:hover, .swiper-button-prev:hover {
             background: rgba(212, 175, 55, 0.7);
             color: #1e2a1a;
             transform: scale(1.1);
         }
+        
         .swiper-button-next:after, .swiper-button-prev:after {
             font-size: 1.5rem;
             font-weight: bold;
         }
 
+        /* Пагинация */
         .swiper-pagination-bullet {
             background: #dbb25c;
             opacity: 0.6;
         }
+        
         .swiper-pagination-bullet-active {
             background: #f5c542;
             opacity: 1;
@@ -413,7 +366,7 @@
         </div>
     </section>
 
-    <!-- Слайдер с 10 фотографиями (ВАШИ ФОТО, НЕ ТРОГАЛ) + ЖЁСТКОЕ ВЫРАВНИВАНИЕ -->
+    <!-- Слайдер с 10 фотографиями - ваши фото, идеальное выравнивание -->
     <section class="fade-on-scroll">
         <h2>📸 КАДРЫ ПАМЯТИ | 10 ФОТО</h2>
         <p style="margin-bottom: 1rem; color: #cfc394; font-weight: 300;">Листайте слайдер — каждый кадр хранит историю подвига</p>
@@ -460,7 +413,7 @@
         <p style="margin-top: 1.2rem; font-size: 0.8rem; text-align: center; background: #00000055; display: inline-block; width: auto; padding: 0.4rem 1.2rem; border-radius: 60px; backdrop-filter: blur(8px);">⚡ 10 кадров, застывших в вечности. Листайте, чтобы увидеть все.</p>
     </section>
 
-    <!-- Историческая справка (без фразы из письма) -->
+    <!-- Историческая справка -->
     <section class="fade-on-scroll">
         <h2>⚡ НЕИЗВЕСТНЫЕ ФАКТЫ</h2>
         <div class="info-grid">
@@ -487,7 +440,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    // Инициализация слайдера
+    // Чистая инициализация слайдера - без костылей
     const swiper = new Swiper('.mySwiper', {
         loop: true,
         autoplay: {
@@ -495,7 +448,6 @@
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
         },
-        effect: 'slide',
         speed: 800,
         navigation: {
             nextEl: '.swiper-button-next',
@@ -511,10 +463,9 @@
             onlyInViewport: true,
         },
         grabCursor: true,
-        spaceBetween: 0,
     });
 
-    // Анимации появления
+    // Анимации появления при скролле
     const fadeElements = document.querySelectorAll('.fade-on-scroll');
     
     function checkFadeIn() {
@@ -560,13 +511,14 @@
         });
     });
 
-    // Анимация для слайдера
+    // Плавное появление слайдера
     const sliderBlock = document.querySelector('.slider-container');
     if (sliderBlock) {
         sliderBlock.style.animation = 'fadeSlideUp 0.8s ease forwards';
         sliderBlock.style.opacity = '0';
         sliderBlock.style.animationFillMode = 'forwards';
     }
+    
     if (!document.querySelector('#dynamicKeyframe')) {
         const styleSheet = document.createElement("style");
         styleSheet.textContent = `
@@ -577,31 +529,6 @@
         `;
         document.head.appendChild(styleSheet);
     }
-    
-    // ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ КАРТИНОК через JS на всякий случай (двойная страховка)
-    function forceImageFit() {
-        const slides = document.querySelectorAll('.swiper-slide');
-        slides.forEach(slide => {
-            const img = slide.querySelector('img');
-            if (img) {
-                // Убеждаемся, что стили применены
-                img.style.position = 'absolute';
-                img.style.top = '0';
-                img.style.left = '0';
-                img.style.width = '100%';
-                img.style.height = '100%';
-                img.style.objectFit = 'cover';
-                img.style.objectPosition = 'center';
-            }
-        });
-    }
-    
-    // Запускаем после загрузки и после инициализации слайдера
-    setTimeout(forceImageFit, 100);
-    swiper.on('slideChange', function() {
-        forceImageFit();
-    });
-    window.addEventListener('load', forceImageFit);
 </script>
 </body>
 </html>
