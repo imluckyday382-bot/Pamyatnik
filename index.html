@@ -197,7 +197,7 @@
             font-weight: 600;
         }
 
-        /* Слайдер */
+        /* Слайдер - ЖЁСТКОЕ ВЫРАВНИВАНИЕ КАРТИНОК */
         .slider-container {
             position: relative;
             border-radius: 1.8rem;
@@ -206,6 +206,7 @@
             box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
+            background: #1a1f15;
         }
 
         .slider-container:hover {
@@ -227,28 +228,70 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            position: relative;
         }
 
-        /* КЛЮЧЕВОЕ: автоматическое выравнивание картинок под размеры рамки */
+        /* ГЛАВНОЕ: ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ЛЮБЫХ КАРТИНОК */
         .swiper-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;  /* Картинка автоматически обрезается и заполняет всю рамку, сохраняя пропорции */
-            object-position: center; /* Центрирование кадра */
+            object-fit: cover;
+            object-position: center;
             display: block;
             transition: transform 0.5s ease, filter 0.4s ease;
+            /* Принудительно заполняет всю рамку, обрезая лишнее */
         }
 
-        /* Дополнительная страховка для любых изображений внутри слайда */
-        .swiper-slide picture,
-        .swiper-slide figure {
+        /* Дополнительная защита: если картинка всё ещё не на всю высоту */
+        .swiper-slide {
+            position: relative;
+        }
+        
+        .swiper-slide::before {
+            content: '';
+            display: none;
+        }
+
+        /* Форсируем для всех img внутри слайда */
+        .swiper-wrapper .swiper-slide img {
+            min-width: 100%;
+            min-height: 100%;
+            max-width: none;
+            max-height: none;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* Альтернативный более жёсткий метод через background-image? 
+           Но оставляем img, просто фиксим через absolute */
+        .swiper-slide {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .swiper-slide img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
-
+        
+        /* Убираем старый transform translate у img при таком подходе, оставляем только hover */
         .swiper-slide:hover img {
-            transform: scale(1.02);
+            transform: scale(1.03);
             filter: brightness(1.02) contrast(1.05);
+        }
+        
+        /* А для hover не ломаем позиционирование */
+        .swiper-slide:hover img {
+            transform: scale(1.03);
         }
 
         .swiper-button-next, .swiper-button-prev {
@@ -259,6 +302,7 @@
             border-radius: 50%;
             backdrop-filter: blur(8px);
             transition: all 0.2s;
+            z-index: 20;
         }
         .swiper-button-next:hover, .swiper-button-prev:hover {
             background: rgba(212, 175, 55, 0.7);
@@ -369,7 +413,7 @@
         </div>
     </section>
 
-    <!-- Слайдер с 10 фотографиями (ваши фото, ничего не менял) -->
+    <!-- Слайдер с 10 фотографиями (ВАШИ ФОТО, НЕ ТРОГАЛ) + ЖЁСТКОЕ ВЫРАВНИВАНИЕ -->
     <section class="fade-on-scroll">
         <h2>📸 КАДРЫ ПАМЯТИ | 10 ФОТО</h2>
         <p style="margin-bottom: 1rem; color: #cfc394; font-weight: 300;">Листайте слайдер — каждый кадр хранит историю подвига</p>
@@ -533,6 +577,31 @@
         `;
         document.head.appendChild(styleSheet);
     }
+    
+    // ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ КАРТИНОК через JS на всякий случай (двойная страховка)
+    function forceImageFit() {
+        const slides = document.querySelectorAll('.swiper-slide');
+        slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            if (img) {
+                // Убеждаемся, что стили применены
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.style.objectPosition = 'center';
+            }
+        });
+    }
+    
+    // Запускаем после загрузки и после инициализации слайдера
+    setTimeout(forceImageFit, 100);
+    swiper.on('slideChange', function() {
+        forceImageFit();
+    });
+    window.addEventListener('load', forceImageFit);
 </script>
 </body>
 </html>
