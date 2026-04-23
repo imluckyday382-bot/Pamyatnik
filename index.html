@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Пермь · Памятник героям завода Свердлова | Динамическая память</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <!-- Swiper CSS для слайдера -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         * {
@@ -23,7 +23,6 @@
             overflow-x: hidden;
         }
 
-        /* Динамический градиентный фон с движением */
         body::before {
             content: '';
             position: fixed;
@@ -61,7 +60,6 @@
             z-index: 2;
         }
 
-        /* Hero — кинематографичный, с параллаксом и пульсацией */
         .hero {
             background: linear-gradient(135deg, #1f2e1b, #0f180d);
             color: #fef5e3;
@@ -114,7 +112,6 @@
             background: rgba(0,0,0,0.3);
         }
 
-        /* секции с мощной анимацией при скролле + трансформации */
         section {
             background: rgba(30, 34, 24, 0.75);
             backdrop-filter: blur(12px);
@@ -134,7 +131,6 @@
             background: rgba(35, 42, 28, 0.85);
         }
 
-        /* Анимации при скролле */
         .fade-on-scroll {
             opacity: 0;
             transform: translateY(40px) scale(0.97);
@@ -158,17 +154,50 @@
             transition: 0.3s;
         }
 
-        .description-text {
-            font-size: 1.07rem;
-            line-height: 1.7;
+        /* Общий блок описания + адрес и дата */
+        .description-wrapper {
             background: rgba(0,0,0,0.3);
-            padding: 1.4rem 1.8rem;
             border-radius: 1.6rem;
             backdrop-filter: blur(4px);
             border: 1px solid rgba(210, 170, 70, 0.3);
+            overflow: hidden;
         }
 
-        /* ========== СЛАЙДЕР (SWIPER) ========== */
+        .description-text {
+            font-size: 1.07rem;
+            line-height: 1.7;
+            padding: 1.4rem 1.8rem;
+        }
+
+        .info-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.2rem 1.8rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            margin-top: 0.5rem;
+            justify-content: space-between;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+            background: rgba(30, 35, 22, 0.5);
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .info-item strong {
+            color: #e5c687;
+            font-weight: 600;
+        }
+
+        /* Слайдер */
         .slider-container {
             position: relative;
             border-radius: 1.8rem;
@@ -212,7 +241,6 @@
             filter: brightness(1.02) contrast(1.05);
         }
 
-        /* Кастомная стилизация навигации */
         .swiper-button-next, .swiper-button-prev {
             color: #dbb25c;
             background: rgba(0,0,0,0.5);
@@ -242,18 +270,6 @@
             transform: scale(1.2);
         }
 
-        /* Адаптив для слайдера */
-        @media (max-width: 760px) {
-            .swiper {
-                height: 320px;
-            }
-            .swiper-button-next, .swiper-button-prev {
-                width: 35px;
-                height: 35px;
-            }
-        }
-
-        /* историческая справка — с блеском */
         .info-grid {
             display: flex;
             flex-wrap: wrap;
@@ -302,7 +318,15 @@
                 font-size: 1.6rem;
             }
             .swiper {
-                height: 280px;
+                height: 320px;
+            }
+            .swiper-button-next, .swiper-button-prev {
+                width: 35px;
+                height: 35px;
+            }
+            .info-item {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.8rem;
             }
         }
     </style>
@@ -315,17 +339,27 @@
 </div>
 
 <div class="container">
-    <!-- Блок описания с анимацией -->
+    <!-- Единый блок: описание памятника + адрес + дата открытия -->
     <section class="fade-on-scroll">
-        <h2>📜 Описание монумента</h2>
-        <div class="description-text">
-            <p>Грандиозный мемориал у проходной завода им. Я. М. Свердлова — свидетельство несгибаемой воли и скорби. Тысячи заводчан, не вернувшихся с полей сражений, навсегда вписаны в гранитные плиты. Стела из серого гранита, увенчанная орденом Отечественной войны, возвышается как символ мужества.</p>
-            <p>У подножия — имена павших героев. Каждый год 9 Мая здесь — море цветов, живые голоса и слезы памяти. Надпись на постаменте: <em>«Никто не забыт, ничто не забыто»</em>. Это святое место для каждого пермяка.</p>
-            <p>Памятник, открытый в 1975 году, стал центром торжественных митингов и уроков истории. Дух героев живёт в каждом камне.</p>
+        <h2>📜 О мемориале</h2>
+        <div class="description-wrapper">
+            <div class="description-text">
+                <p>Грандиозный мемориал у проходной завода им. Я. М. Свердлова — свидетельство несгибаемой воли и скорби. Тысячи заводчан, не вернувшихся с полей сражений, навсегда вписаны в гранитные плиты. Стела из серого гранита, увенчанная орденом Отечественной войны, возвышается как символ мужества.</p>
+                <p>У подножия — имена павших героев. Каждый год 9 Мая здесь — море цветов, живые голоса и слезы памяти. Надпись на постаменте: <em>«Никто не забыт, ничто не забыто»</em>. Это святое место для каждого пермяка.</p>
+                <p>Памятник, открытый в 1975 году, стал центром торжественных митингов и уроков истории. Дух героев живёт в каждом камне.</p>
+            </div>
+            <div class="info-row">
+                <div class="info-item">
+                    <span>📍</span> <strong>Адрес:</strong> г. Пермь, ул. 1905 года, 35 (территория у проходной завода им. Я. М. Свердлова)
+                </div>
+                <div class="info-item">
+                    <span>📅</span> <strong>Дата открытия:</strong> 9 мая 1975 года (к 30-летию Победы)
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Фотогалерея: СЛАЙДЕР на 10 фотографий -->
+    <!-- Слайдер с 10 фотографиями -->
     <section class="fade-on-scroll">
         <h2>📸 КАДРЫ ПАМЯТИ | 10 ФОТО</h2>
         <p style="margin-bottom: 1rem; color: #cfc394; font-weight: 300;">Листайте слайдер — каждый кадр хранит историю подвига</p>
@@ -333,7 +367,6 @@
         <div class="slider-container">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <!-- 10 слайдов с изображениями (полная замена статичным рамкам) -->
                     <div class="swiper-slide">
                         <img src="https://placehold.co/1200x700/5f6e4a/fef6e6?text=Стела+памяти+завод+Свердлова" alt="Главная стела памятника">
                     </div>
@@ -365,7 +398,6 @@
                         <img src="https://placehold.co/1200x700/697e4c/fef3e0?text=Школьники+у+мемориала" alt="Урок мужества у монумента">
                     </div>
                 </div>
-                <!-- Пагинация и кнопки навигации -->
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -374,7 +406,7 @@
         <p style="margin-top: 1.2rem; font-size: 0.8rem; text-align: center; background: #00000055; display: inline-block; width: auto; padding: 0.4rem 1.2rem; border-radius: 60px; backdrop-filter: blur(8px);">⚡ 10 кадров, застывших в вечности. Листайте, чтобы увидеть все.</p>
     </section>
 
-    <!-- Историческая справка -->
+    <!-- Историческая справка (без фразы из письма) -->
     <section class="fade-on-scroll">
         <h2>⚡ НЕИЗВЕСТНЫЕ ФАКТЫ</h2>
         <div class="info-grid">
@@ -391,9 +423,6 @@
                 <p>При обновлении мемориала под плитами нашли капсулу с наказом потомкам: «Помните, какой ценой добыто счастье». Капсула хранится в музее завода.</p>
             </div>
         </div>
-        <div style="margin-top: 2rem; background: #00000066; border-radius: 1.5rem; padding: 1.2rem; text-align: center; backdrop-filter: blur(12px); border: 1px solid #dbb25c40;">
-            <p style="font-weight: 700; font-size: 1.1rem;">«Мы уходим в бессмертие. Вы остаётесь помнить» — из письма бойца-свердловца 1943 г.</p>
-        </div>
     </section>
 </div>
 
@@ -402,10 +431,9 @@
     <p style="margin-top: 0.6rem;">Сайт памяти — вечный огонь в наших сердцах. Никто не забыт.</p>
 </footer>
 
-<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    // Инициализация слайдера с красивыми параметрами
+    // Инициализация слайдера
     const swiper = new Swiper('.mySwiper', {
         loop: true,
         autoplay: {
@@ -432,7 +460,7 @@
         spaceBetween: 0,
     });
 
-    // Анимации появления при скролле
+    // Анимации появления
     const fadeElements = document.querySelectorAll('.fade-on-scroll');
     
     function checkFadeIn() {
@@ -453,7 +481,7 @@
     window.addEventListener('scroll', checkFadeIn);
     window.addEventListener('resize', checkFadeIn);
     
-    // Интерактивный параллакс для hero (движение мыши)
+    // Параллакс для hero
     const hero = document.querySelector('.hero');
     if (hero) {
         document.addEventListener('mousemove', (e) => {
@@ -466,7 +494,7 @@
         });
     }
 
-    // Анимация пульсации для всех h2 при наведении
+    // Анимация для заголовков
     const headings = document.querySelectorAll('h2');
     headings.forEach(h => {
         h.addEventListener('mouseenter', () => {
@@ -478,14 +506,13 @@
         });
     });
 
-    // Дополнительная стилизация для плавного появления слайдера (добавим класс при загрузке)
+    // Анимация для слайдера
     const sliderBlock = document.querySelector('.slider-container');
     if (sliderBlock) {
         sliderBlock.style.animation = 'fadeSlideUp 0.8s ease forwards';
         sliderBlock.style.opacity = '0';
         sliderBlock.style.animationFillMode = 'forwards';
     }
-    // Добавим ключевой кадр, если нет в стилях
     if (!document.querySelector('#dynamicKeyframe')) {
         const styleSheet = document.createElement("style");
         styleSheet.textContent = `
