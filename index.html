@@ -226,14 +226,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
+        /* КЛЮЧЕВОЕ: автоматическое выравнивание картинок под размеры рамки */
         .swiper-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover;  /* Картинка автоматически обрезается и заполняет всю рамку, сохраняя пропорции */
+            object-position: center; /* Центрирование кадра */
             display: block;
             transition: transform 0.5s ease, filter 0.4s ease;
+        }
+
+        /* Дополнительная страховка для любых изображений внутри слайда */
+        .swiper-slide picture,
+        .swiper-slide figure {
+            width: 100%;
+            height: 100%;
         }
 
         .swiper-slide:hover img {
@@ -359,7 +369,7 @@
         </div>
     </section>
 
-    <!-- Слайдер с 10 фотографиями -->
+    <!-- Слайдер с 10 фотографиями (ваши фото, ничего не менял) -->
     <section class="fade-on-scroll">
         <h2>📸 КАДРЫ ПАМЯТИ | 10 ФОТО</h2>
         <p style="margin-bottom: 1rem; color: #cfc394; font-weight: 300;">Листайте слайдер — каждый кадр хранит историю подвига</p>
@@ -368,34 +378,34 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-55.jpg">
+                        <img src="photo_2026-04-23_09-49-55.jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-54.jpg">
+                        <img src="photo_2026-04-23_09-49-54.jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-53.jpg">
+                        <img src="photo_2026-04-23_09-49-53.jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-52.jpg">
+                        <img src="photo_2026-04-23_09-49-52.jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-52 (2).jpg">
+                        <img src="photo_2026-04-23_09-49-52 (2).jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-51.jpg">
+                        <img src="photo_2026-04-23_09-49-51.jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-50.jpg">
+                        <img src="photo_2026-04-23_09-49-50.jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-49.jpg">
+                        <img src="photo_2026-04-23_09-49-49.jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-47.jpg">
+                        <img src="photo_2026-04-23_09-49-47.jpg" alt="Памятник">
                     </div>
                     <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-29.jpg">
+                        <img src="photo_2026-04-23_09-49-29.jpg" alt="Памятник">
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
