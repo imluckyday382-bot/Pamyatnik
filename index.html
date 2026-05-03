@@ -196,7 +196,7 @@
             font-weight: 600;
         }
 
-        /* ===== СЛАЙДЕР - ПРОСТОЕ И НАДЁЖНОЕ РЕШЕНИЕ ===== */
+        /* ===== СЛАЙДЕР - 6 ГОРИЗОНТАЛЬНЫХ + 4 ВЕРТИКАЛЬНЫХ РАМКИ ===== */
         .slider-container {
             position: relative;
             border-radius: 1.8rem;
@@ -225,9 +225,33 @@
             position: relative;
             overflow: hidden;
             background: #1a1f15;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* ГЛАВНОЕ ПРАВИЛО - картинка заполняет весь слайд без смещений */
+        /* Горизонтальные рамки (landscape) - 6 штук */
+        .swiper-slide.landscape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.5s ease, filter 0.4s ease;
+        }
+
+        /* Вертикальные рамки (portrait) - 4 штуки */
+        .swiper-slide.portrait img {
+            width: auto;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.5s ease, filter 0.4s ease;
+        }
+
+        /* Если картинка квадратная или любая другая - стандартное заполнение */
         .swiper-slide img {
             width: 100%;
             height: 100%;
@@ -335,6 +359,12 @@
                 font-size: 0.8rem;
                 padding: 0.3rem 0.8rem;
             }
+            /* На мобилках вертикальные фото тоже адаптируем */
+            .swiper-slide.portrait img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     </style>
 </head>
@@ -366,43 +396,45 @@
         </div>
     </section>
 
-    <!-- Слайдер с 10 фотографиями - ваши фото, идеальное выравнивание -->
+    <!-- Слайдер: 6 горизонтальных рамок + 4 вертикальных -->
     <section class="fade-on-scroll">
         <h2>📸 КАДРЫ ПАМЯТИ | 10 ФОТО</h2>
-        <p style="margin-bottom: 1rem; color: #cfc394; font-weight: 300;">Листайте слайдер — каждый кадр хранит историю подвига</p>
+        <p style="margin-bottom: 1rem; color: #cfc394; font-weight: 300;">Листайте слайдер — 6 горизонтальных и 4 вертикальных кадра</p>
         
         <div class="slider-container">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-55.jpg" alt="Памятник">
+                    <!-- 6 ГОРИЗОНТАЛЬНЫХ РАМОК (landscape) -->
+                    <div class="swiper-slide landscape">
+                        <img src="photo_2026-04-23_09-49-55.jpg" alt="Памятник горизонтальный 1">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-54.jpg" alt="Памятник">
+                    <div class="swiper-slide landscape">
+                        <img src="photo_2026-04-23_09-49-54.jpg" alt="Памятник горизонтальный 2">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-53.jpg" alt="Памятник">
+                    <div class="swiper-slide landscape">
+                        <img src="photo_2026-04-23_09-49-53.jpg" alt="Памятник горизонтальный 3">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-52.jpg" alt="Памятник">
+                    <div class="swiper-slide landscape">
+                        <img src="photo_2026-04-23_09-49-52.jpg" alt="Памятник горизонтальный 4">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-52 (2).jpg" alt="Памятник">
+                    <div class="swiper-slide landscape">
+                        <img src="photo_2026-04-23_09-49-52 (2).jpg" alt="Памятник горизонтальный 5">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-51.jpg" alt="Памятник">
+                    <div class="swiper-slide landscape">
+                        <img src="photo_2026-04-23_09-49-51.jpg" alt="Памятник горизонтальный 6">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-50.jpg" alt="Памятник">
+                    <!-- 4 ВЕРТИКАЛЬНЫХ РАМКИ (portrait) -->
+                    <div class="swiper-slide portrait">
+                        <img src="photo_2026-04-23_09-49-50.jpg" alt="Памятник вертикальный 1">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-49.jpg" alt="Памятник">
+                    <div class="swiper-slide portrait">
+                        <img src="photo_2026-04-23_09-49-49.jpg" alt="Памятник вертикальный 2">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-47.jpg" alt="Памятник">
+                    <div class="swiper-slide portrait">
+                        <img src="photo_2026-04-23_09-49-47.jpg" alt="Памятник вертикальный 3">
                     </div>
-                    <div class="swiper-slide">
-                        <img src="photo_2026-04-23_09-49-29.jpg" alt="Памятник">
+                    <div class="swiper-slide portrait">
+                        <img src="photo_2026-04-23_09-49-29.jpg" alt="Памятник вертикальный 4">
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -410,7 +442,7 @@
                 <div class="swiper-button-prev"></div>
             </div>
         </div>
-        <p style="margin-top: 1.2rem; font-size: 0.8rem; text-align: center; background: #00000055; display: inline-block; width: auto; padding: 0.4rem 1.2rem; border-radius: 60px; backdrop-filter: blur(8px);">⚡ 10 кадров, застывших в вечности. Листайте, чтобы увидеть все.</p>
+        <p style="margin-top: 1.2rem; font-size: 0.8rem; text-align: center; background: #00000055; display: inline-block; width: auto; padding: 0.4rem 1.2rem; border-radius: 60px; backdrop-filter: blur(8px);">⚡ 6 горизонтальных + 4 вертикальных кадра. Листайте, чтобы увидеть все.</p>
     </section>
 
     <!-- Историческая справка -->
@@ -439,7 +471,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    // Чистая инициализация слайдера - без костылей
+    // Инициализация слайдера
     const swiper = new Swiper('.mySwiper', {
         loop: true,
         autoplay: {
